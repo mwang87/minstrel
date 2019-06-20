@@ -4,8 +4,11 @@ build:
 bash:
 	docker run -it -p 5025:5000 -v $(PWD)/test:/test --rm --name rhapsodyserver rhapsodyserver bash
 
-interactive:
+test:
 	docker run -it -p 5025:5000 -v $(PWD)/tempuploads:/app/tempuploads --rm --name rhapsodyserver rhapsodyserver /app/run_server.sh
+
+interactive:
+	docker run -it -p 5025:5000 -v $(PWD)/tempuploads:/app/tempuploads --rm --name rhapsodyserver rhapsodyserver /app/run_production_server.sh
 
 server:
 	docker run -d -p 5025:5000 --rm --name rhapsodyserver rhapsodyserver /app/run_production_server.sh
