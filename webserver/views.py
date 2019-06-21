@@ -89,7 +89,8 @@ def process_mmvec():
 
     #zipping up results
     results_zip_filename = microbiome_qza = os.path.join(app.config['UPLOAD_FOLDER'], uuid_prefix + "_results.tgz")
-    os.system("tar -czvf -C %s %s %s" % (mmvec_output_directory, results_zip_filename, mmvec_output_directory))
+    tar_cmd = "tar -czvf %s %s" % (results_zip_filename, mmvec_output_directory)
+    os.system(tar_cmd)
 
     return send_file(results_zip_filename, as_attachment=True, attachment_filename="rhapsody.tgz", cache_timeout=5)
     
