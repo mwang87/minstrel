@@ -13,3 +13,6 @@ pep8:
 	flake8 rhapsody setup.py
 
 all: pep8 test
+
+docker-build:
+	docker build -t rhapsodydocker -f Dockerfile.cpu .
