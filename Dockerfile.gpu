@@ -1,0 +1,6 @@
+FROM tensorflow/tensorflow:1.13.2-gpu-py3-jupyter
+MAINTAINER Mingxun Wang "mwang87@gmail.com"
+
+RUN pip install rhapsody
+RUN pip uninstall -y tensorflow-gpu
+RUN pip install tensorflow-gpu
